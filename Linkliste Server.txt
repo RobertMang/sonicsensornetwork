@@ -1,0 +1,19 @@
+https://www.hetzner.de/hosting/produkte_vserver/cx10
+
+
+http://php.net/manual/de/reserved.variables.request.php
+
+Suche nach:
+php get request parameter example server
+
+ÜBergabe sollte dann etwa soc aussehen:
+- www.autoaid.de?time=2017&value1=123&value2=1234
+
+
+code von holger für den Server: 
+
+<?php$year = isset($_GET['year']) ? $_GET['year'] : null;
+$month = isset($_GET['month']) ? $_GET['month'] : null;
+$day = isset($_GET['day']) ? $_GET['day'] : null;$mysqli = new mysqli('localhost', 'root', '', 'dbname');
+$mysqli->set_charset("utf8");$stmt = $mysqli->prepare('INSERT INTO tablename (create_timestamp, source_alias, target_alias, event_class, event_type, event_label, event_data, source, ip) VALUES (NOW(4),?,?,?,?,?,?,?,?)');
+$stmt->bind_param('ssssssss', $source_alias, $target_alias, $event_class, $event_type, $event_label, $event_data, $source, $ip);$stmt->execute();
